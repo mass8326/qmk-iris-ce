@@ -41,3 +41,8 @@ void set_colors(layer_state_t layer_state, led_t led_state) {
             break;
     }
 }
+
+uint32_t deferred_reset(uint32_t trigger_time, void *cb_arg) {
+    set_colors(layer_state, host_keyboard_led_state());
+    return 0;
+}
